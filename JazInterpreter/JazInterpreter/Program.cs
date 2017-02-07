@@ -8,8 +8,8 @@ namespace Jaz_Interpreter
 {
     class Program
     {
-        public static Stack<int> executionStack = new Stack<int>();
-        public static HashSet<KeyValuePair<string,string>> symbolTable = new HashSet<KeyValuePair<string, string>>();
+        public static Stack<int> ExecutionStack = new Stack<int>();
+        public static List<KeyValuePair<string,string>> SymbolTable = new List<KeyValuePair<string, string>>();
 
         static void Main(string[] args)
         {

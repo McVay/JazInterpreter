@@ -11,9 +11,9 @@ namespace JazInterpreter
     {
         public static bool Analyze(List<string> lines)
         {
-            foreach (var line in lines)
+            for (var i = 0; i < lines.Count; i++)
             {
-                var trimmedLine = line.Trim();
+                var trimmedLine = lines[i].Trim();
                 var splitLine = trimmedLine.Split(' ');
 
                 var head = splitLine[0].Trim();
@@ -23,12 +23,12 @@ namespace JazInterpreter
 
                 if (head.Equals("label"))
                 {
-                    //store label somewhere
-                    Program.symbolTable.Add(new KeyValuePair<string, string>(head, tail));
+                    //store label somewhere with line number (which will be the same as the index for the following item in symboltable
+                    Program.SymbolTable.Add(new KeyValuePair<string, string>(head, tail));
                 }
                 else
                 {
-                    Program.symbolTable.Add(new KeyValuePair<string, string>(head, tail));
+                    Program.SymbolTable.Add(new KeyValuePair<string, string>(head, tail));
                 }
             }
             return true;
