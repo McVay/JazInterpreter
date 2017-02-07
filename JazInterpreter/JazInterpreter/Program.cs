@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using JazInterpreter;
 
 namespace Jaz_Interpreter
 {
     class Program
     {
-        private static Stack<int> _stack = new Stack<int>();
-        private static KeyValuePair<string, string> _symbolTable = new KeyValuePair<string, string>();
+        public static Stack<int> executionStack = new Stack<int>();
+        public static HashSet<KeyValuePair<string,string>> symbolTable = new HashSet<KeyValuePair<string, string>>();
 
         static void Main(string[] args)
         {
@@ -18,10 +20,15 @@ namespace Jaz_Interpreter
             }
 
             //Analyze
-            var lines = File.ReadLines(args[0]);
-            foreach (var line in lines)
-            {
+            List<string> lines = File.ReadLines(args[0]) as List<string>;
 
+            if (lines != null && lines.Count > 0)
+            {
+                Analyzer.Analyze(lines);
+                foreach (var line in lines)
+                {
+                    //execute
+                }
             }
         }
     }
