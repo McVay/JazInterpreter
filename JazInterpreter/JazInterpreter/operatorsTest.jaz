@@ -56,4 +56,60 @@ show 3 / 4 = 0
 /
 print
 pop
+show --------------------------------
+push 0
+push 1
+show 0 & 1 = 0
+&
+print
+pop
+show --------------------------------
+push 0
+push 1
+show 0 | 1 = 1
+|
+print 
+pop
+show --------------------------------
+push 0
+show !0 = 1
+!
+print
+pop
+show --------------------------------
+push 4
+push 3
+show 4 <> 3 = 1 
+<>
+print
+pop
+show --------------------------------
+push 3 
+push 4
+show 3 <= 4 = 1
+<=
+print 
+pop
+show --------------------------------
+push 3
+push 4
+show 3 >= 4 = 0
+>=
+print
+pop
+show --------------------------------
+push 3
+push 4
+show 3 < 4 = 1
+<
+print
+pop
+show --------------------------------
+push 3
+push 4
+show 3 > 4 = 0 
+>
+print
+pop
+show -------------------------------
 halt

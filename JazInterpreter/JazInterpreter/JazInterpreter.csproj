@@ -47,9 +47,11 @@
     <Compile Include="ArithmeticOps.cs" />
     <Compile Include="ControlFlow.cs" />
     <Compile Include="Executor.cs" />
+    <Compile Include="LogicalOps.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelationalOps.cs" />
     <Compile Include="StackManipulation.cs" />
   </ItemGroup>
   <ItemGroup>

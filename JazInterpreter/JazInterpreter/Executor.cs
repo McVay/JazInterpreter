@@ -67,6 +67,37 @@ namespace JazInterpreter
                     ArithmeticOps.Modulo();
                     break;
                 #endregion
+                #region LogicalOps
+                case "&":
+                    LogicalOps.And();
+                    break;
+                case "|":
+                    LogicalOps.Or();
+                    break;
+                case "!":
+                    LogicalOps.Not();
+                    break;
+                #endregion
+                #region RelationalOps
+                case "<>":
+                    RelationalOps.NotEqual();
+                    break;
+                case "=":
+                    RelationalOps.Equal();
+                    break;
+                case ">=":
+                    RelationalOps.GreaterOrEqual();
+                    break;
+                case "<=":
+                    RelationalOps.LessOrEqual();
+                    break;
+                case ">":
+                    RelationalOps.Greater();
+                    break;
+                case "<":
+                    RelationalOps.Less();
+                    break;
+                #endregion
                 #region Output
                 case "print":
                     Output.Print();
