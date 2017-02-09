@@ -24,11 +24,11 @@ namespace JazInterpreter
                 if (head.Equals("label"))
                 {
                     //store label somewhere with line number (which will be the same as the index for the following item in symboltable
-                    Program.SymbolTable.Add(new KeyValuePair<string, Object>(head, tail));
+                    Program.SymbolTable.Add(new KeyValuePair<string, string>(head, tail));
                 }
                 else
                 {
-                    Program.SymbolTable.Add(new KeyValuePair<string, Object>(head, tail));
+                    Program.SymbolTable.Add(new KeyValuePair<string, string>(head, tail));
                 }
             }
             return true;

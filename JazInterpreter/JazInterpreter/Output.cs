@@ -11,6 +11,7 @@ namespace JazInterpreter
     {
         public static void Print()
         {
+            //Probably should put a peek method into StackManipulation, or should we just pop when we print?
             Console.WriteLine(Program.ExecutionStack.Peek());
         }
         public static void Show(string output)

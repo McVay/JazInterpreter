@@ -9,7 +9,7 @@ namespace Jaz_Interpreter
     class Program
     {
         public static Stack<int> ExecutionStack = new Stack<int>();
-        public static List<KeyValuePair<string, Object>> SymbolTable = new List<KeyValuePair<string, Object>>();
+        public static List<KeyValuePair<string, string>> SymbolTable = new List<KeyValuePair<string, string>>();
 
         static void Main(string[] args)
         {

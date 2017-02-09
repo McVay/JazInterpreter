@@ -9,13 +9,13 @@ namespace JazInterpreter
 {
     public class Executor
     {
-        public static void Execute(KeyValuePair<string, Object> instruction)
+        public static void Execute(KeyValuePair<string, string> instruction)
         {
             switch (instruction.Key)
             {
                 #region StackManiuplation
                 case "push":
-                    StackManipulation.Push(int.Parse(instruction.Value.ToString()));
+                    StackManipulation.Push(int.Parse(instruction.Value));
                     break;
                 case "rvalue":
                     //TODO: Implement method
@@ -27,7 +27,7 @@ namespace JazInterpreter
                     StackManipulation.Pop();
                     break;
                 case ":=":
-                    Console.Write(instruction.Value);
+                    //TODO: Implement method
                     break;
                 case "copy":
                     StackManipulation.Copy();
@@ -72,7 +72,7 @@ namespace JazInterpreter
                     Output.Print();
                     break;
                 case "show":
-                    Output.Show(instruction.Value.ToString());
+                    Output.Show(instruction.Value);
                     break;
                 #endregion
             }   
