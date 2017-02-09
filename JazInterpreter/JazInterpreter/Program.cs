@@ -9,25 +9,27 @@ namespace Jaz_Interpreter
     class Program
     {
         public static Stack<int> ExecutionStack = new Stack<int>();
-        public static List<KeyValuePair<string,string>> SymbolTable = new List<KeyValuePair<string, string>>();
+        public static List<KeyValuePair<string, Object>> SymbolTable = new List<KeyValuePair<string, Object>>();
 
         static void Main(string[] args)
         {
-            if (!(args.Length > 0))
-            {
-                Console.WriteLine("You must provide a file path.");
-                Environment.Exit(0);
-            }
+            //if (!(args.Length > 0))
+            //{
+            //    Console.WriteLine("You must provide a file path.");
+            //    Environment.Exit(0);
+            //}
 
             //Analyze
-            List<string> lines = File.ReadLines(args[0]) as List<string>;
+            //List<string> lines = File.ReadLines(args[0]) as List<string>;
+            IEnumerable<string> lines = File.ReadLines("operatorsTest.jaz");
+            var enumerable = lines as IList<string> ?? lines.ToList();
 
-            if (lines != null && lines.Count > 0)
+            if (enumerable.Any())
             {
-                Analyzer.Analyze(lines);
-                foreach (var line in lines)
+                Analyzer.Analyze(enumerable.ToList());
+                foreach (var line in SymbolTable)
                 {
-                    //execute
+                    Executor.Execute(line);
                 }
             }
         }
