@@ -2,6 +2,25 @@ show
 show  This code illustrates basic arithmetic
 show  and logical operations.
 show 
+rvalue var
+show Variables are initialized to "zero"
+show Value of var is:
+print 
+pop
+show --------------------------------
+show x = 5 
+lvalue x
+push 5
+:=
+show y = 7
+lvalue y
+push 7
+:=
+show x + y = 12
+rvalue x
+rvalue y
++
+print
 show --------------------------------
 push 3
 push 7

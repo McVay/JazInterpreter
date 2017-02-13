@@ -9,17 +9,45 @@ namespace JazInterpreter
 {
     public static class StackManipulation
     {
-        public static void Push(int input)
+        public static void Push(object input)
         {
             Program.ExecutionStack.Push(input);
         }
-        public static int Pop()
+        public static object Pop()
         {
             return Program.ExecutionStack.Pop();
         }
         public static void Copy()
         {
             Program.ExecutionStack.Push(Program.ExecutionStack.Peek());
+        }
+
+        public static void Set()
+        {
+            int value = (int) Pop();
+            string varname = (string) Pop();
+            Program.MemoryTable[varname] = value;
+        }
+
+        public static void RValue(string instructionValue)
+        {
+            int value;
+            if (Program.MemoryTable.TryGetValue(instructionValue, out value))
+            {
+                Push(value);
+            }
+            else
+            {
+                Push(0);
+            }
+        }
+
+        public static void LValue(string instructionValue)
+        {
+            //Add the variable to our memory table, init value to 0
+            Program.MemoryTable.Add(instructionValue, 0);
+            //Pass the name of the variable to the stack
+            Push(instructionValue);
         }
     }
 }

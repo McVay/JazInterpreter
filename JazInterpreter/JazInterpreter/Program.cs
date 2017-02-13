@@ -8,8 +8,9 @@ namespace Jaz_Interpreter
 {
     class Program
     {
-        public static Stack<int> ExecutionStack = new Stack<int>();
+        public static Stack<object> ExecutionStack = new Stack<object>();
         public static List<KeyValuePair<string, string>> SymbolTable = new List<KeyValuePair<string, string>>();
+        public static Dictionary<string, int> MemoryTable = new Dictionary<string, int>();
 
         static void Main(string[] args)
         {
@@ -23,7 +24,6 @@ namespace Jaz_Interpreter
             //List<string> lines = File.ReadLines(args[0]) as List<string>;
             IEnumerable<string> lines = File.ReadLines("operatorsTest.jaz");
             var enumerable = lines as IList<string> ?? lines.ToList();
-
             if (enumerable.Any())
             {
                 Analyzer.Analyze(enumerable.ToList());

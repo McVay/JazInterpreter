@@ -10,21 +10,21 @@ namespace JazInterpreter
     {
         public static void And()
         {
-            var val1 = StackManipulation.Pop();
-            var val2 = StackManipulation.Pop();
+            int val1 = (int)StackManipulation.Pop();
+            int val2 = (int)StackManipulation.Pop();
             StackManipulation.Push(val2 & val1);
         }
         public static void Or()
         {
-            var val1 = StackManipulation.Pop();
-            var val2 = StackManipulation.Pop();
+            int val1 = (int)StackManipulation.Pop();
+            int val2 = (int)StackManipulation.Pop();
             StackManipulation.Push(val2 | val1);
 
         }
         public static void Not()
         {
             // Not sure that is correct but works for me.
-            var val1 = StackManipulation.Pop();
+            int val1 = (int)StackManipulation.Pop();
             StackManipulation.Push(val1 == 0 ? 1 : 0);
         }
     }

@@ -22,26 +22,26 @@ namespace JazInterpreter
         }
         public static void LessOrEqual()
         {
-            var val1 = StackManipulation.Pop();
-            var val2 = StackManipulation.Pop();
+            int val1 = (int)StackManipulation.Pop();
+            int val2 = (int)StackManipulation.Pop();
             StackManipulation.Push(val2 <= val1 ? 1 : 0);
         }
         public static void GreaterOrEqual()
         {
-            var val1 = StackManipulation.Pop();
-            var val2 = StackManipulation.Pop();
+            int val1 = (int)StackManipulation.Pop();
+            int val2 = (int)StackManipulation.Pop();
             StackManipulation.Push(val2 >= val1 ? 1 : 0);
         }
         public static void Less()
         {
-            var val1 = StackManipulation.Pop();
-            var val2 = StackManipulation.Pop();
+            int val1 = (int)StackManipulation.Pop();
+            int val2 = (int)StackManipulation.Pop();
             StackManipulation.Push(val2 < val1 ? 1 : 0);
         }
         public static void Greater()
         {
-            var val1 = StackManipulation.Pop();
-            var val2 = StackManipulation.Pop();
+            int val1 = (int)StackManipulation.Pop();
+            int val2 = (int)StackManipulation.Pop();
             StackManipulation.Push(val2 > val1 ? 1 : 0);
         }
     }

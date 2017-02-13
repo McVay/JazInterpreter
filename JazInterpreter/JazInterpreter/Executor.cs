@@ -18,16 +18,16 @@ namespace JazInterpreter
                     StackManipulation.Push(int.Parse(instruction.Value));
                     break;
                 case "rvalue":
-                    //TODO: Implement method
+                    StackManipulation.RValue(instruction.Value);
                     break;
                 case "lvalue":
-                    //TODO: Implement method
+                    StackManipulation.LValue(instruction.Value);
                     break;
                 case "pop":
                     StackManipulation.Pop();
                     break;
                 case ":=":
-                    //TODO: Implement method
+                    StackManipulation.Set();
                     break;
                 case "copy":
                     StackManipulation.Copy();
