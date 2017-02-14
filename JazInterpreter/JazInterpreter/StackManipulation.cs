@@ -44,9 +44,7 @@ namespace JazInterpreter
 
         public static void LValue(string instructionValue)
         {
-            //Add the variable to our memory table, init value to 0
             Program.MemoryTable.Add(instructionValue, 0);
-            //Pass the name of the variable to the stack
             Push(instructionValue);
         }
     }

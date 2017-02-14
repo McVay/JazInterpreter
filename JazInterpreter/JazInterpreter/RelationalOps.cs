@@ -10,14 +10,14 @@ namespace JazInterpreter
     {
         public static void NotEqual()
         {
-            var val1 = StackManipulation.Pop();
-            var val2 = StackManipulation.Pop();
+            int val1 = (int)StackManipulation.Pop();
+            int val2 = (int)StackManipulation.Pop();
             StackManipulation.Push(val2 != val1 ? 1 : 0);
         }
         public static void Equal()
         {
-            var val1 = StackManipulation.Pop();
-            var val2 = StackManipulation.Pop();
+            int val1 = (int)StackManipulation.Pop();
+            int val2 = (int)StackManipulation.Pop();
             StackManipulation.Push(val2 == val1 ? 1 : 0);
         }
         public static void LessOrEqual()

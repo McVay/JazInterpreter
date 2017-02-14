@@ -23,7 +23,6 @@ namespace JazInterpreter
         }
         public static void Not()
         {
-            // Not sure that is correct but works for me.
             int val1 = (int)StackManipulation.Pop();
             StackManipulation.Push(val1 == 0 ? 1 : 0);
         }
