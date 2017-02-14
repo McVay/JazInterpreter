@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Jaz_Interpreter;
 
 namespace JazInterpreter
 {
@@ -23,7 +22,7 @@ namespace JazInterpreter
 
                 if (head.Equals("label"))
                 {
-                    //store label somewhere with line number (which will be the same as the index for the following item in symboltable
+                    Program.LabelTable.Add(tail, i);
                     Program.SymbolTable.Add(new KeyValuePair<string, string>(head, tail));
                 }
                 else

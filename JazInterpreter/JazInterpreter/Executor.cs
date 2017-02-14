@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Jaz_Interpreter;
 
 namespace JazInterpreter
 {
@@ -34,17 +33,14 @@ namespace JazInterpreter
                     break;
                 #endregion
                 #region ControlFlow
-                case "label":
-                    //TODO: Implement method
-                    break;
                 case "goto":
-                    //TODO: Implement method
+                    ControlFlow.Goto(instruction.Value);
                     break;
                 case "gofalse":
-                    //TODO: Implement method
+                    ControlFlow.GoFalse(instruction.Value);
                     break;
                 case "gotrue":
-                    //TODO: Implement method
+                    ControlFlow.GoTrue(instruction.Value);
                     break;
                 case "halt":
                     ControlFlow.Halt();

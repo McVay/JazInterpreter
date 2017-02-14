@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JazInterpreter;
 
-namespace Jaz_Interpreter
+namespace JazInterpreter
 {
     class Program
     {
         public static Stack<object> ExecutionStack = new Stack<object>();
         public static List<KeyValuePair<string, string>> SymbolTable = new List<KeyValuePair<string, string>>();
         public static Dictionary<string, int> MemoryTable = new Dictionary<string, int>();
+        public static Dictionary<string, int> LabelTable = new Dictionary<string, int>();
+
+        public static int LineCount = 0;
 
         static void Main(string[] args)
         {
@@ -24,12 +26,15 @@ namespace Jaz_Interpreter
             //List<string> lines = File.ReadLines(args[0]) as List<string>;
             IEnumerable<string> lines = File.ReadLines("operatorsTest.jaz");
             var enumerable = lines as IList<string> ?? lines.ToList();
+
             if (enumerable.Any())
             {
-                Analyzer.Analyze(enumerable.ToList());
-                foreach (var line in SymbolTable)
+                //Analyze any line that isn't just whitespace
+                Analyzer.Analyze(enumerable.Where(x => !String.IsNullOrWhiteSpace(x)).ToList()); 
+                while(LineCount < SymbolTable.Count)
                 {
-                    Executor.Execute(line);
+                    Executor.Execute(SymbolTable[LineCount]);
+                    LineCount++;
                 }
             }
         }

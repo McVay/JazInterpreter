@@ -6,7 +6,11 @@ rvalue var
 show Variables are initialized to "zero"
 show Value of var is:
 print 
-pop
+gofalse falseLabel
+label trueLabel
+show we are in label trueLabel
+label falseLabel
+show since 0 was on the stack, we never went to the truelabel and jumped right to falselabel
 show --------------------------------
 show x = 5 
 lvalue x
