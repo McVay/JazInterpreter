@@ -10,6 +10,7 @@ namespace JazInterpreter
         public static Stack<object> ExecutionStack = new Stack<object>();
         public static List<KeyValuePair<string, string>> SymbolTable = new List<KeyValuePair<string, string>>();
         public static Dictionary<string, int> MemoryTable = new Dictionary<string, int>();
+        public static Dictionary<string, int> MemoryTableCopy = new Dictionary<string, int>();
         public static Dictionary<string, int> LabelTable = new Dictionary<string, int>();
 
         public static int LineCount = 0;
@@ -24,7 +25,7 @@ namespace JazInterpreter
 
             //Analyze
             //List<string> lines = File.ReadLines(args[0]) as List<string>;
-            IEnumerable<string> lines = File.ReadLines("operatorsTest.jaz");
+            IEnumerable<string> lines = File.ReadLines("factProc.jaz");
             var enumerable = lines as IList<string> ?? lines.ToList();
 
             if (enumerable.Any())

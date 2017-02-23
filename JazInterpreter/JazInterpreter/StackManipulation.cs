@@ -43,8 +43,25 @@ namespace JazInterpreter
 
         public static void LValue(string instructionValue)
         {
-            Program.MemoryTable.Add(instructionValue, 0);
+            int value;
+            if (Program.MemoryTable.TryGetValue(instructionValue, out value))
+            {
+
+            }
+            else
+            {
+                Program.MemoryTable.Add(instructionValue, 0); 
+            }
+
             Push(instructionValue);
+
+            if (SubprogramControl.inSubprogram && !SubprogramControl.toRemove.Contains(instructionValue)) 
+            {
+                if (Program.MemoryTable.ContainsKey(instructionValue) && !Program.MemoryTableCopy.ContainsKey(instructionValue))
+                {
+                        SubprogramControl.toRemove.Add(instructionValue);   
+                }
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace JazInterpreter
         {
             switch (instruction.Key)
             {
-                #region StackManiuplation
+                #region StackManipulation
                 case "push":
                     StackManipulation.Push(int.Parse(instruction.Value));
                     break;
@@ -102,7 +102,21 @@ namespace JazInterpreter
                     Output.Show(instruction.Value);
                     break;
                 #endregion
-            }   
+                #region Subprogram Control
+                case "begin":
+                    SubprogramControl.Begin();
+                    break;
+                case "end":
+                    SubprogramControl.End();
+                    break;
+                case "return":
+                    SubprogramControl.Return();
+                    break;
+                case "call":
+                    SubprogramControl.Call(instruction.Value);
+                    break;
+                #endregion
+            }
         }
     }
 }

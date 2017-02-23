@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RelationalOps.cs" />
     <Compile Include="StackManipulation.cs" />
+    <Compile Include="SubprogramControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
