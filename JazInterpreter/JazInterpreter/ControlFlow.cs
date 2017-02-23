@@ -12,6 +12,7 @@ namespace JazInterpreter
         {
             Console.WriteLine("\nPress any key to exit");
             Console.ReadKey();
+            Environment.Exit(1);
         }
 
         public static void Goto(string value)

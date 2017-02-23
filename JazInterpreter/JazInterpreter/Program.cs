@@ -17,15 +17,17 @@ namespace JazInterpreter
 
         static void Main(string[] args)
         {
-            //if (!(args.Length > 0))
-            //{
-            //    Console.WriteLine("You must provide a file path.");
-            //    Environment.Exit(0);
-            //}
+            if (!(args.Length > 0))
+            {
+                Console.WriteLine("You must provide a file path.");
 
-            //Analyze
-            //List<string> lines = File.ReadLines(args[0]) as List<string>;
-            IEnumerable<string> lines = File.ReadLines("factProc.jaz");
+                Console.WriteLine("Press any key to exit");
+                Console.ReadKey();
+                Environment.Exit(1);
+            }
+
+            //IEnumerable<string> lines = File.ReadLines("factProc.jaz");
+            IEnumerable<string> lines = File.ReadLines(args[0]);
             var enumerable = lines as IList<string> ?? lines.ToList();
 
             if (enumerable.Any())
